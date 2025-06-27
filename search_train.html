@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Train</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: linear-gradient(135deg, #e0f7fa,rgb(140, 149, 250)); /* Light blue gradient */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #37474f; /* Dark grey text */
+        }
+        header {
+            background-color: #64b5f6; /* Light blue header */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .logo-container {
+            margin-right: 20px;
+            height: 50px; /* Adjust size */
+        }
+        .logo {
+            max-height: 100%;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+        .search-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 85%;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #546e7a; /* Slate grey label */
+            font-size: 1.1em;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="date"] {
+            width: calc(100% - 22px);
+            padding: 12px;
+            border: 1px solid #a7b1b8; /* Light grey border */
+            border-radius: 6px;
+            font-size: 1em;
+            color: #37474f;
+        }
+        .form-group button {
+            background-color: #29b6f6; /* Bright blue button */
+            color: #fff;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .form-group button:hover {
+            background-color:rgb(54, 131, 189); /* Darker bright blue */
+        }
+        .flash-messages {
+            margin-top: 30px;
+            width: 85%;
+            max-width: 600px;
+        }
+        .flash {
+            padding: 18px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .flash.error {
+            background-color: #ffcdd2; /* Light red */
+            color: #d32f2f; /* Dark red */
+            border: 1px solid #e57373;
+        }
+        .flash.info {
+            background-color: #c8e6c9; /* Light green */
+            color: #388e3c; /* Dark green */
+            border: 1px solid #81c784;
+        }
+        .back-link {
+            color: #1e88e5; /* Another shade of blue */
+            text-decoration: none;
+            margin-top: 20px;
+            font-size: 1em;
+            transition: color 0.3s ease;
+        }
+        .back-link:hover {
+            color: #0d47a1; /* Darker blue */
+        }
+        footer {
+            background-color: #37474f;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            margin-top: auto;
+            font-size: 0.9em;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='logo.jpeg')}}
+            " alt="RailEase Colorful Logo" class="logo">
+        </div>
+        <h1>Find Your Train</h1>
+    </header>
+    <div class="search-container">
+        <form method="POST">
+            <div class="form-group">
+                <label for="from"><i class="fas fa-train-station"></i> From Station:</label>
+                <input type="text" id="from" name="from" placeholder="Enter departure station" required>
+            </div>
+            <div class="form-group">
+                <label for="to"><i class="fas fa-map-marker-alt"></i> To Station:</label>
+                <input type="text" id="to" name="to" placeholder="Enter destination station" required>
+            </div>
+            <div class="form-group">
+                <label for="journeyDate"><i class="far fa-calendar-alt"></i> Journey Date:</label>
+                <input type="date" id="journeyDate" name="journeyDate" required>
+            </div>
+            <div class="form-group">
+                <button type="submit"><i class="fas fa-search"></i> Search Trains</button>
+            </div>
+        </form>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% endwith %}
+    </div>
+    <a href="{{ url_for('index') }}" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    <footer>
+        <p>&copy; 2025 RailEase Travels - Enjoy Your Colorful Journey!</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Statement</title>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            background-color: #f0f4c3; /* Light Yellowish background */
+            color: #333;
+            line-height: 1.6;
+        }
+        .statement-box {
+            border: 1px solid #ddd;
+            padding: 30px;
+            width: 700px;
+            margin: auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .heading {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            font-size: 2.2em;
+            font-weight: 600;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            height: 70px;
+        }
+        p {
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+        strong {
+            color: #007bff;
+        }
+        @media print {
+            .no-print {
+                display: none;
+            }
+        }
+        .print-button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        .print-button:hover {
+            background-color: #0056b3;
+        }
+        .text-right{
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="statement-box">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.jpeg')}}
+            " alt="Railway Logo">
+        </div>
+        <h2 class="heading">Railway Reservation Statement</h2>
+        <p><strong>Booking ID:</strong> <span style="color:#2c3e50;">{{ booking.id }}</span></p>
+        <p><strong>Name:</strong> <span style="color:#2c3e50;">{{ booking.name }}</span></p>
+        <p><strong>Train:</strong> <span style="color:#2c3e50;">{{ booking.train_number }}</span> - <span style="color:#008000;">{{ booking.train_name }}</span></p>
+        <p><strong>Date:</strong> <span style="color:#2c3e50;">{{ booking.date }}</span></p>
+        <p><strong>Seats:</strong> <span style="color:#2c3e50;">{{ booking.seats }}</span></p>
+        <p><strong>Status:</strong> <span style="color:#008000;">{{ booking.status }}</span></p>
+        
+
+        <div class="no-print">
+            <button onclick="window.print()" class="print-button">Print Statement</button>
+        </div>
+    </div>
+</body>
+</html>

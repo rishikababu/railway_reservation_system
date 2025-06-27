@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #28a745; /* Green for success/confirmation */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo-container {
+            margin-right: 20px;
+            height: 40px; /* Adjust size as needed */
+        }
+        .logo {
+            max-height: 100%;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        .confirmation-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .confirmation-heading {
+            color: #28a745;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        .confirmation-details {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .detail-row {
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: #333;
+        }
+        .detail-label {
+            font-weight: bold;
+            margin-right: 10px;
+            color: #555;
+        }
+        .action-links {
+            margin-top: 20px;
+        }
+        .action-links a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: 1px solid #007bff;
+            color: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .action-links a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        .back-link {
+            color: #007bff;
+            text-decoration: none;
+            margin-top: 15px;
+            font-size: 0.9em;
+            transition: color 0.3s ease;
+        }
+        .back-link:hover {
+            color: #0056b3;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            width: 100%;
+            margin-top: auto;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='logo.jpeg') }}" alt="RailEase Logo" class="logo">
+        </div>
+        <h1>Booking Successful!</h1>
+    </header>
+    <div class="confirmation-container">
+        <h2 class="confirmation-heading">Your Train Ticket is Confirmed</h2>
+        <div class="confirmation-details">
+            <div class="detail-row">
+                <span class="detail-label">Booking ID:</span> {{ booking_id }}
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Train:</span> {{ train_id }}
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">From:</span> {{ from_station }}
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">To:</span> {{ to_station }}
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Journey Date:</span> {{ journey_date }}
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Seats:</span> {{ seats }}
+            </div>
+        </div>
+        <div class="action-links">
+            <a href="{{ url_for('print_ticket', booking_id=booking_id) }}">View / Download Ticket</a>
+        </div>
+    </div>
+    <a href="{{ url_for('index') }}" class="back-link">Back to Home</a>
+    <footer>
+        <p>&copy; 2025 RailEase Travels</p>
+    </footer>
+</body>
+</html>

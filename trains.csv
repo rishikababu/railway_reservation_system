@@ -1,0 +1,129 @@
+train_id,from_station,to_station,departure,available_seats
+101,Chennai Egmore,Coimbatore,2025-04-20 06:00,100
+102,Chennai Egmore,Trichy,2025-04-20 07:00,120
+103,Chennai Egmore,Madurai,2025-04-20 08:00,110
+104,Chennai Egmore,Salem,2025-04-20 09:00,130
+105,Chennai Egmore,Delhi,2025-04-20 10:00,80
+106,Chennai Egmore,Bangalore,2025-04-20 11:00,150
+107,Chennai Egmore,Hyderabad,2025-04-20 12:00,100
+108,Chennai Egmore,Pondicherry,2025-04-20 13:00,200
+109,Chennai Egmore,Karur,2025-04-20 14:00,90
+110,Chennai Egmore,Nagapattinam,2025-04-20 15:00,140
+111,Chennai Central,Bangalore,2025-04-20 16:30,160
+112,Chennai Central,Mumbai,2025-04-20 17:45,70
+113,Chennai Central,Kolkata,2025-04-20 19:00,95
+114,Chennai Central,Tirupati,2025-04-20 20:15,180
+115,Coimbatore,Chennai Egmore,2025-04-21 07:30,115
+116,Trichy,Chennai Egmore,2025-04-21 08:45,135
+117,Madurai,Chennai Egmore,2025-04-27 09:30,105
+118,Salem,Chennai Egmore,2025-04-21 10:45,125
+119,Delhi,Chennai Central,2025-04-21 12:00,65
+120,Bangalore,Chennai Central,2025-04-21 13:15,145
+121,Hyderabad,Chennai Central,2025-04-21 14:30,95
+122,Pondicherry,Chennai Egmore,2025-04-21 15:45,190
+123,Karur,Chennai Egmore,2025-04-21 17:00,85
+124,Nagapattinam,Chennai Egmore,2025-04-21 18:15,130
+125,Bangalore,Coimbatore,2025-04-20 22:00,120
+126,Mumbai,Bangalore,2025-04-20 23:15,55
+127,Kolkata,Bangalore,2025-04-21 00:30,80
+128,Tirupati,Bangalore,2025-04-21 01:45,155
+129,Coimbatore,Bangalore,2025-04-21 19:00,105
+130,Trichy,Madurai,2025-04-20 19:30,110
+131,Madurai,Trichy,2025-04-21 05:00,100
+132,Salem,Coimbatore,2025-04-20 21:00,125
+133,Coimbatore,Salem,2025-04-21 11:30,110
+134,Karur,Trichy,2025-04-20 22:30,80
+135,Trichy,Karur,2025-04-21 06:30,95
+136,Nagapattinam,Trichy,2025-04-21 00:00,130
+137,Trichy,Nagapattinam,2025-04-21 16:00,115
+138,Madurai,Tirunelveli,2025-04-20 23:45,100
+139,Tirunelveli,Madurai,2025-04-21 14:00,120
+140,Salem,Erode,2025-04-21 01:15,115
+141,Erode,Salem,2025-04-21 17:30,100
+142,Thanjavur,Trichy,2025-04-21 02:45,140
+143,Trichy,Thanjavur,2025-04-21 19:00,125
+144,Hosur,Bangalore,2025-04-21 04:00,160
+145,Bangalore,Hosur,2025-04-21 20:30,150
+146,Vellore,Chennai Central,2025-04-20 23:00,170
+147,Chennai Central,Vellore,2025-04-21 10:00,155
+148,Erode,Coimbatore,2025-04-21 05:30,130
+149,Coimbatore,Erode,2025-04-21 22:00,115
+150,Tirunelveli,Chennai Egmore,2025-04-21 16:30,90
+151,Coimbatore,Madurai,2025-04-20 10:30,100
+152,Madurai,Coimbatore,2025-04-21 15:00,110
+153,Salem,Madurai,2025-04-20 12:00,120
+154,Madurai,Salem,2025-04-21 17:30,95
+155,Trichy,Tirunelveli,2025-04-20 14:30,85
+156,Tirunelveli,Trichy,2025-04-21 20:00,105
+157,Erode,Trichy,2025-04-20 16:00,130
+158,Trichy,Erode,2025-04-21 21:30,115
+159,Thanjavur,Madurai,2025-04-20 17:30,90
+160,Madurai,Thanjavur,2025-04-22 06:00,100
+161,Karur,Madurai,2025-04-20 19:00,105
+162,Madurai,Karur,2025-04-22 07:30,115
+163,Nagapattinam,Madurai,2025-04-20 20:30,120
+164,Madurai,Nagapattinam,2025-04-22 09:00,90
+165,Vellore,Madurai,2025-04-21 06:30,80
+166,Madurai,Vellore,2025-04-22 10:30,100
+167,Pondicherry,Madurai,2025-04-21 08:00,110
+168,Madurai,Pondicherry,2025-04-22 12:00,125
+169,Tirunelveli,Coimbatore,2025-04-21 09:30,130
+170,Coimbatore,Tirunelveli,2025-04-22 13:30,105
+171,Salem,Tirunelveli,2025-04-21 11:00,95
+172,Tirunelveli,Salem,2025-04-22 15:00,115
+173,Erode,Tirunelveli,2025-04-21 12:30,120
+174,Tirunelveli,Erode,2025-04-22 16:30,85
+175,Thanjavur,Tirunelveli,2025-04-21 14:00,100
+176,Tirunelveli,Thanjavur,2025-04-22 18:00,110
+177,Karur,Tirunelveli,2025-04-21 15:30,115
+178,Tirunelveli,Karur,2025-04-22 19:30,95
+179,Nagapattinam,Tirunelveli,2025-04-21 17:00,80
+180,Tirunelveli,Nagapattinam,2025-04-22 21:00,100
+181,Vellore,Tirunelveli,2025-04-21 18:30,105
+182,Tirunelveli,Vellore,2025-04-22 22:30,120
+183,Pondicherry,Tirunelveli,2025-04-21 20:00,125
+184,Tirunelveli,Pondicherry,2025-04-23 00:00,85
+185,Coimbatore,Thanjavur,2025-04-20 16:00,90
+186,Thanjavur,Coimbatore,2025-04-21 22:30,100
+187,Salem,Thanjavur,2025-04-20 17:30,110
+188,Thanjavur,Salem,2025-04-21 23:45,120
+189,Erode,Thanjavur,2025-04-20 19:00,125
+190,Thanjavur,Erode,2025-04-22 01:00,95
+191,Karur,Thanjavur,2025-04-20 20:30,85
+192,Thanjavur,Karur,2025-04-22 02:30,110
+193,Nagapattinam,Thanjavur,2025-04-20 22:00,100
+194,Thanjavur,Nagapattinam,2025-04-22 04:00,125
+195,Vellore,Thanjavur,2025-04-21 00:30,115
+196,Thanjavur,Vellore,2025-04-22 05:30,80
+197,Pondicherry,Thanjavur,2025-04-21 02:00,95
+198,Thanjavur,Pondicherry,2025-04-22 07:00,105
+199,Coimbatore,Karur,2025-04-20 11:30,120
+200,Karur,Coimbatore,2025-04-21 18:00,90
+201,Salem,Karur,2025-04-20 13:00,100
+202,Karur,Salem,2025-04-21 19:30,115
+203,Erode,Karur,2025-04-20 14:30,115
+204,Karur,Erode,2025-04-21 21:00,100
+205,Nagapattinam,Karur,2025-04-20 16:00,95
+206,Karur,Nagapattinam,2025-04-21 22:30,120
+207,Vellore,Karur,2025-04-20 17:30,125
+208,Karur,Vellore,2025-04-22 00:00,85
+209,Pondicherry,Karur,2025-04-20 19:00,100
+210,Karur,Pondicherry,2025-04-22 01:30,110
+211,Coimbatore,Nagapattinam,2025-04-20 17:00,80
+212,Nagapattinam,Coimbatore,2025-04-22 03:00,95
+213,Salem,Nagapattinam,2025-04-20 18:30,95
+214,Nagapattinam,Salem,2025-04-22 04:30,110
+215,Erode,Nagapattinam,2025-04-20 20:00,110
+216,Nagapattinam,Erode,2025-04-22 06:00,100
+217,Vellore,Nagapattinam,2025-04-20 21:30,100
+218,Nagapattinam,Vellore,2025-04-22 07:30,115
+219,Pondicherry,Nagapattinam,2025-04-20 23:00,120
+220,Nagapattinam,Pondicherry,2025-04-22 09:00,85
+221,Coimbatore,Vellore,2025-04-20 12:30,115
+222,Vellore,Coimbatore,2025-04-21 19:00,90
+223,Salem,Vellore,2025-04-20 14:00,85
+224,Vellore,Salem,2025-04-21 20:30,105
+225,Erode,Vellore,2025-04-20 15:30,100
+226,Vellore,Erode,2025-04-21 22:00,120
+227,Pondicherry,Vellore,2025-04-20 17:00,90
+228,Vellore,Pondicherry,2025-04-

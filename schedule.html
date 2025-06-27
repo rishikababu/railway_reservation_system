@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Schedule - RailEase</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #37474f;
+        }
+        header {
+            background-color: #81d4fa; /* Light blue header */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #4fc3f7;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header .logo {
+            height: 50px;
+            margin-right: 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+        table {
+            width: 90%;
+            max-width: 900px;
+            background-color: #fff;
+            border-collapse: collapse;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden; /* To contain the border-radius */
+            margin-bottom: 30px;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        th {
+            background-color: #29b6f6; /* Bright blue header row */
+            color: #fff;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f5f5f5; /* Light grey for even rows */
+        }
+        tbody tr:hover {
+            background-color: #e1f5fe; /* Light blue on hover */
+        }
+        td a {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #ff9800; /* Orange book button */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        td a:hover {
+            background-color: #f57c00;
+        }
+        .no-trains {
+            padding: 20px;
+            text-align: center;
+            font-size: 1.1em;
+            color: #d32f2f;
+            background-color: #ffebee;
+            border: 1px solid #e57373;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .back-link {
+            color: #1e88e5;
+            text-decoration: none;
+            margin-top: 20px;
+            font-size: 1em;
+            transition: color 0.3s ease;
+        }
+        .back-link:hover {
+            color: #0d47a1;
+        }
+        footer {
+            background-color: #37474f;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            margin-top: auto;
+            font-size: 0.9em;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='logo.jpeg')}}
+            " alt="RailEase Colorful Logo" class="logo">
+        </div>
+        <h1>Available Trains</h1>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Train ID</th>
+                    <th>From Station</th>
+                    <th>To Station</th>
+                    <th>Departure</th>
+                    <th>Available Seats</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if trains %}
+                    {% for train in trains %}
+                    <tr>
+                        <td>{{ train.train_id }}</td>
+                        <td>{{ train.from_station }}</td>
+                        <td>{{ train.to_station }}</td>
+                        <td>{{ train.departure }}</td>
+                        <td>{{ train.available_seats }}</td>
+                        <td>
+                            <a href="{{ url_for('book', train_id=train.train_id,
+                                                    from=train.from_station,
+                                                    to=train.to_station,
+                                                    date=train.departure.split()[0]) }}">
+                                Book Now
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="6" class="no-trains">No trains available for your search criteria</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </main>
+    <a href="{{ url_for('index') }}" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    <footer>
+        <p>&copy; 2025 RailEase Travels - Your Colorful Journey Awaits!</p>
+    </footer>
+</body>
+</html>

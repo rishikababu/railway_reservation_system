@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Ticket</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0; /* Light grey background for viewing */
+            margin: 20px;
+        }
+        .ticket {
+            background-color: #fff; /* White background for the ticket itself */
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 80%; /* Adjust width as needed */
+            max-width: 600px;
+            margin: 20px auto;
+            color: #333; /* Dark text color */
+        }
+        .ticket-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .logo-container {
+            /* Adjust logo size as needed */
+            height: 50px;
+        }
+        .logo {
+            max-height: 100%;
+        }
+        .company-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #007bff; /* A common railway color */
+        }
+        .ticket-details {
+            margin-bottom: 15px;
+        }
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+        .detail-label {
+            font-weight: bold;
+            color: #555;
+        }
+        .barcode {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em; /* Placeholder for a real barcode */
+            color: #888;
+        }
+        .important-info {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #eee;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            font-size: 0.8em;
+            color: #777;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-container button, .button-container a {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        .print-button {
+            background-color: #007bff;
+        }
+        .download-button {
+            background-color: #28a745;
+        }
+        /* Styles specifically for printing */
+        @media print {
+            body {
+                background-color: #fff; /* White background for printing */
+                margin: 0;
+                padding: 0;
+                font-size: 10pt; /* Adjust font size for printing */
+            }
+            .ticket {
+                box-shadow: none;
+                border: 1px solid #000; /* Black border for printing */
+                width: 100%;
+                max-width: none;
+                margin: 0;
+                border-radius: 0;
+                padding: 10px; /* Adjust padding for printing */
+            }
+            .button-container {
+                display: none; /* Hide buttons when printing */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ticket">
+        <div class="ticket-header">
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='logo.jpeg') }}" alt="RailEase Logo" class="logo">
+            </div>
+            <div class="company-name">RailEase Travels</div>
+        </div>
+        <div class="ticket-details">
+            <div class="detail-row">
+                <div class="detail-label">Booking ID:</div>
+                <div>{{ booking.booking_id }}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Train:</div>
+                <div>{{ booking.train_id }}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">From:</div>
+                <div>{{ booking.from_station }}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">To:</div>
+                <div>{{ booking.to_station }}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Journey Date:</div>
+                <div>{{ booking.journey_date }}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Seats:</div>
+                <div>{{ booking.seats }}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Passenger Name:</div>
+                <div>{{ booking.name }}</div>
+            </div>
+        </div>
+        <div class="barcode">
+            |||| ||||| |||| ||||| ||||
+        </div>
+        <div class="important-info">
+            <p>Please keep this ticket safe. It is required for travel.</p>
+            <p>Report to the boarding station at least 30 minutes prior to departure.</p>
+            </div>
+    </div>
+    <div class="button-container">
+        <button onclick="window.print()" class="print-button">Print Ticket</button>
+        <a href="{{ url_for('download_ticket', booking_id=booking.booking_id) }}" class="download-button">Download Ticket</a>
+    </div>
+    <a href="{{ url_for('index') }}" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    <footer>
+        <p>&copy; 2025 RailEase Travels</p>
+    </footer>
+</body>
+</html>
+
